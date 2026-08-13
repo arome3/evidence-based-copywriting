@@ -26,7 +26,7 @@ flowchart LR
 
 ## What's inside
 
-All paths below live under `skills/evidence-based-copywriting/` (the repo is packaged as a Claude Code plugin that is also its own marketplace):
+All paths below live under `skills/evidence-based-copywriting/` (the repo is packaged as both a Claude Code plugin and a Codex plugin, each self-hosting its own marketplace):
 
 | Path | What it is |
 |---|---|
@@ -58,6 +58,20 @@ cp -R /tmp/ebc/skills/evidence-based-copywriting ~/.claude/skills/
 ```
 
 For one project, copy into `.claude/skills/` inside the repo and commit it.
+
+**OpenAI Codex — plugin (recommended):**
+
+```
+codex plugin marketplace add arome3/evidence-based-copywriting
+```
+
+Then install `evidence-based-copywriting` from the plugin list. Quick single-skill alternative, inside Codex:
+
+```
+$skill-installer install https://github.com/arome3/evidence-based-copywriting/tree/main/skills/evidence-based-copywriting
+```
+
+**Codex / Copilot CLI / Gemini CLI — manual:** copy `skills/evidence-based-copywriting/` into `~/.agents/skills/` (the cross-runtime user skills directory; use `.agents/skills/` inside a repo for project scope). Invoke with `$evidence-based-copywriting` or let it trigger implicitly.
 
 **Claude.ai** (Pro/Max/Team/Enterprise, code execution enabled): download `evidence-based-copywriting-skill.zip` from the [latest release](https://github.com/arome3/evidence-based-copywriting/releases/latest) and upload via Settings → Features → Skills.
 
