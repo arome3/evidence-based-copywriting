@@ -26,6 +26,8 @@ flowchart LR
 
 ## What's inside
 
+All paths below live under `skills/evidence-based-copywriting/` (the repo is packaged as a Claude Code plugin that is also its own marketplace):
+
 | Path | What it is |
 |---|---|
 | `SKILL.md` | The pipeline, Iron Laws, rationalization table, red flags |
@@ -39,19 +41,29 @@ flowchart LR
 
 ## Install
 
-Skills don't sync across surfaces — install where you work:
+**Claude Code — recommended (two commands, updates managed for you):**
 
-**Claude Code** (personal): clone into your skills directory —
-
-```bash
-git clone https://github.com/arome3/evidence-based-copywriting.git ~/.claude/skills/evidence-based-copywriting
+```
+/plugin marketplace add arome3/evidence-based-copywriting
+/plugin install evidence-based-copywriting@evidence-based-copywriting
 ```
 
-For one project, use `.claude/skills/evidence-based-copywriting` inside the repo instead and commit it.
+The skill then appears as `evidence-based-copywriting:evidence-based-copywriting` and triggers automatically on high-stakes copy work.
 
-**Claude.ai** (Pro/Max/Team/Enterprise, code execution enabled): zip this directory and upload via Settings → Features → Skills.
+**Claude Code — manual (personal or per-project):**
 
-**Claude API**: upload via the Skills API (`/v1/skills`, beta header `skills-2025-10-02`) with the code-execution tool enabled. Note the API sandbox has no network access, so the skill runs in its documented no-network fallback (claims are marked unverified rather than silently trusted).
+```bash
+git clone https://github.com/arome3/evidence-based-copywriting.git /tmp/ebc &&
+cp -R /tmp/ebc/skills/evidence-based-copywriting ~/.claude/skills/
+```
+
+For one project, copy into `.claude/skills/` inside the repo and commit it.
+
+**Claude.ai** (Pro/Max/Team/Enterprise, code execution enabled): download `evidence-based-copywriting-skill.zip` from the [latest release](https://github.com/arome3/evidence-based-copywriting/releases/latest) and upload via Settings → Features → Skills.
+
+**Claude API**: upload the same release zip via the Skills API (`/v1/skills`, beta header `skills-2025-10-02`) with the code-execution tool enabled. Note the API sandbox has no network access, so the skill runs in its documented no-network fallback (claims are marked unverified rather than silently trusted).
+
+Skills don't sync across surfaces — install where you work.
 
 ## Use
 
@@ -64,8 +76,8 @@ Ask for what you need in plain language — the skill triggers on high-stakes co
 Standalone checks without an agent:
 
 ```bash
-python3 scripts/check_copy.py your-copy.md            # lexicon + limits (non-zero exit on failure)
-python3 scripts/check_copy.py your-copy.md --urls     # citation worksheet for fact-checking
+python3 skills/evidence-based-copywriting/scripts/check_copy.py your-copy.md          # lexicon + limits
+python3 skills/evidence-based-copywriting/scripts/check_copy.py your-copy.md --urls   # citation worksheet
 ```
 
 ## What it is not
