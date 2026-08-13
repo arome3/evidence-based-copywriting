@@ -5,7 +5,7 @@ license: MIT. See LICENSE for complete terms.
 compatibility: Full source verification requires internet access (web search and URL fetching). A no-network fallback is defined in SKILL.md.
 metadata:
   author: Abraham Onoja (Arnen Labs)
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Evidence-Based Copywriting
